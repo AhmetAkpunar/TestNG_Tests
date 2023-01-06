@@ -10,9 +10,9 @@ public class C04_HardAssert {
         1.si JUnit'deki Assert class'ı ile aynı method'lara sahiptir.
         ilk FAILED olan assert işleminde çalışmayı durdurur ve hata mesajını verir
 
-        2. assert calss'ının adı softassert olduğu için ilkine hard assert denmiştir.
+        2. assert class'ının adı softassert olduğu için ilkine hard assert denmiştir.
 
-        2. Assert class'ı ise SoftAssert class'ıdır.
+        3. Assert class'ı ise SoftAssert class'ıdır.
         SoftAssert biz raporla deyinceye kadar
         Assertion'ları failed olsa bile çalıştırmaya devam eder
         biz raporla dediğimizde çalışan assertions'lardan kaçının failed olduğunu söyler
@@ -29,6 +29,7 @@ public class C04_HardAssert {
         System.out.println("2. Assertion sonrası");
         Assert.assertTrue(6 > 6);
         System.out.println("3. Assertion sonrası");
+
 
     }
 }

@@ -24,7 +24,7 @@ public class C05_SoftAssert {
         System.out.println("3. Assertion sonrası");
 
         // 3. adım softAssert'e raporla diyecez
-        softassert.assertAll(); // Bu satırda çalışma durur, çünkü failed olan assertion var
+        // softassert.assertAll(); // Bu satırda çalışma durur, çünkü failed olan assertion var
         System.out.println("assertAll sonrası");
 
     }

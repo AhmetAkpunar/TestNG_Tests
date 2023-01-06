@@ -1,0 +1,31 @@
+<suite name="My Suite">
+
+    <!-- Çalıştıracağımız Tüm testler <tests name="..."> -->
+    <tests name="My tests">
+
+        <!-- Çalıştıracağımız 1. Test  -->
+        <test name ="First test">
+            <!-- Çalıştıracağımız Test'ler için class'lar oluşturuyoruz  -->
+            <classes>
+                <!-- Çalıştıracağımız Test'in' class'ını oluşturuyoruz  -->
+                <class name="tests.day14_testNgFramework.C02_DependsOnMethods" />
+            </classes>
+        </test>
+
+        <!-- Çalıştıracağımız 2. Test -->
+        <test name="Include Test">
+
+            <classes>
+                <class name="tests.day14_testNgFramework.C01_TestNGIlkTest">
+                    <methods>
+
+                    <include name="ikinciTest"/>
+
+                    </methods>
+
+                </class>
+            </classes>
+        </test>
+
+    </tests>
+</suite>
