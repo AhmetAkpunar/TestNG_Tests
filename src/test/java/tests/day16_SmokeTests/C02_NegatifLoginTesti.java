@@ -1,26 +1,21 @@
-package tests.day15;
+package tests.day16_SmokeTests;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.QualitydemyPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.WaitMethodu;
 
-public class C04_QualityDemi_Negative_Login {
+public class C02_NegatifLoginTesti {
 
-    // 2- https://www.qualitydemy.com/
-    // 3 test method'u olusturun
-    // 1.de yanlis email, dogru sifre
-    // 2.de dogru email yanlis sifre
-    // 3.de yanlis email, yanlis sifre ile giris yapmayi deneyin
-    // giris yapilamadigini test edin
 
-    // email: user_1106147@login.com
-    // doğru şifre: 31488081
 
-    static QualitydemyPage qualitydemyPage = new QualitydemyPage();
+
+
+    QualitydemyPage qualitydemyPage;
 
     @BeforeMethod
     public void driverSetUp(){
@@ -32,15 +27,15 @@ public class C04_QualityDemi_Negative_Login {
         Driver.closeDriver();
     }
 
-    @Test
+    @Test (testName = "Wrong Email with True Password")
     public void yanlisEmailDogruSifre(){
-        Driver.getDriver().get("https://www.qualitydemy.com/");
+        Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));
         // Kullanıcı login linkine tıklar
         qualitydemyPage.logInLinki.click();
         // email kısmına yanlış email girer
-        qualitydemyPage.kullaniciEmail.sendKeys("abc@gmail.com");
+        qualitydemyPage.kullaniciEmail.sendKeys(ConfigReader.getProperty("qdGecersizUserName"));
         // şifreyi doğru girer
-        qualitydemyPage.kullaniciPassword.sendKeys("31488081");
+        qualitydemyPage.kullaniciPassword.sendKeys(ConfigReader.getProperty("qdGecerliPassword"));
         // cookie accept yap button'una tıklar
         qualitydemyPage.cookie.click();
         WaitMethodu.bekle(2);
@@ -49,24 +44,24 @@ public class C04_QualityDemi_Negative_Login {
         Assert.assertTrue(qualitydemyPage.kullaniciEmail.isDisplayed());
     }
 
-    @Test
+    @Test (testName = "True Email with Wrong Password")
     public void dogruEmailYanlisSire(){
         Driver.getDriver().get("https://www.qualitydemy.com/");
         qualitydemyPage.logInLinki.click();
-        qualitydemyPage.kullaniciEmail.sendKeys("user_1106147@login.com");
-        qualitydemyPage.kullaniciPassword.sendKeys("122345");
+        qualitydemyPage.kullaniciEmail.sendKeys(ConfigReader.getProperty("qdGecerliUserName"));
+        qualitydemyPage.kullaniciPassword.sendKeys(ConfigReader.getProperty("qdGecersizPassword"));
         qualitydemyPage.cookie.click();
         WaitMethodu.bekle(2);
         qualitydemyPage.loginButonu.click();
         Assert.assertTrue(qualitydemyPage.kullaniciEmail.isDisplayed());
     }
 
-    @Test
+    @Test (testName = "Wrong Email with With Password")
     public void yanlisEmailYanlisSifre(){
         Driver.getDriver().get("https://www.qualitydemy.com/");
         qualitydemyPage.logInLinki.click();
-        qualitydemyPage.kullaniciEmail.sendKeys("abc@gmail.com");
-        qualitydemyPage.kullaniciPassword.sendKeys("122345");
+        qualitydemyPage.kullaniciEmail.sendKeys(ConfigReader.getProperty("qdGecersizUserName"));
+        qualitydemyPage.kullaniciPassword.sendKeys(ConfigReader.getProperty("qdGecersizPassword"));
         qualitydemyPage.cookie.click();
         WaitMethodu.bekle(2);
         qualitydemyPage.loginButonu.click();

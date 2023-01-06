@@ -1,12 +1,9 @@
-package tests.day15;
+package tests.day15_SoftAssert;
 
 import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
 import pages.AmazonPage;
-import tests.day14_testNgFramework.C04_HardAssert;
 import utilities.Driver;
 
 public class C01_SoftAsserts {

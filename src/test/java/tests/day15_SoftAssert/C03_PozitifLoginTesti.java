@@ -1,10 +1,8 @@
-package tests.day15;
+package tests.day15_SoftAssert;
 
 import org.testng.annotations.Test;
 import pages.QualitydemyPage;
 import utilities.Driver;
-
-import javax.swing.*;
 
 public class C03_PozitifLoginTesti {
 
